@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
-import { Check, X, Star, Zap, Crown, Rocket } from 'lucide-react'
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { Check, X, Star, Zap, Crown, Rocket } from "lucide-react";
 
 const Pricing = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1
-  })
+    threshold: 0.1,
+  });
 
-  const [isAnnual, setIsAnnual] = useState(true)
+  const [isAnnual, setIsAnnual] = useState(true);
 
   const plans = [
     {
@@ -29,8 +29,8 @@ const Pricing = () => {
         { name: "Advanced integrations", included: false },
         { name: "Custom branding", included: false },
         { name: "Priority support", included: false },
-        { name: "Advanced security", included: false }
-      ]
+        { name: "Advanced security", included: false },
+      ],
     },
     {
       name: "Professional",
@@ -49,8 +49,8 @@ const Pricing = () => {
         { name: "Advanced integrations", included: true },
         { name: "Custom branding", included: true },
         { name: "Phone support", included: true },
-        { name: "Advanced security", included: false }
-      ]
+        { name: "Advanced security", included: false },
+      ],
     },
     {
       name: "Enterprise",
@@ -69,10 +69,10 @@ const Pricing = () => {
         { name: "Advanced integrations", included: true },
         { name: "Custom branding", included: true },
         { name: "Priority support", included: true },
-        { name: "Advanced security", included: true }
-      ]
-    }
-  ]
+        { name: "Advanced security", included: true },
+      ],
+    },
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -80,22 +80,25 @@ const Pricing = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
-  }
+        delayChildren: 0.1,
+      },
+    },
+  };
 
   const itemVariants = {
     hidden: { y: 50, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.8, ease: "easeOut" }
-    }
-  }
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
 
   return (
-    <section id="pricing" className="section-padding bg-white">
+    <section
+      id="pricing"
+      className="section-padding bg-gradient-to-br from-gray-900 via-black to-gray-800"
+    >
       <div className="container-custom">
         <motion.div
           ref={ref}
@@ -114,7 +117,7 @@ const Pricing = () => {
 
           <motion.h2
             variants={itemVariants}
-            className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6"
+            className="text-4xl lg:text-6xl font-bold text-white mb-6"
           >
             Choose the perfect plan
             <span className="block gradient-text">for your business</span>
@@ -122,10 +125,11 @@ const Pricing = () => {
 
           <motion.p
             variants={itemVariants}
-            className="text-xl text-gray-600 max-w-3xl mx-auto mb-12"
+            className="text-xl text-white/80 max-w-3xl mx-auto mb-12"
           >
-            Start with a free trial, then choose a plan that fits your team's needs. 
-            All plans include our core features with varying limits and support levels.
+            Start with a free trial, then choose a plan that fits your team's
+            needs. All plans include our core features with varying limits and
+            support levels.
           </motion.p>
 
           {/* Billing Toggle */}
@@ -136,9 +140,9 @@ const Pricing = () => {
             <button
               onClick={() => setIsAnnual(false)}
               className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-                !isAnnual 
-                  ? 'bg-white text-primary-600 shadow-md' 
-                  : 'text-gray-600 hover:text-gray-800'
+                !isAnnual
+                  ? "bg-white text-primary-600 shadow-md"
+                  : "text-gray-600 hover:text-gray-800"
               }`}
             >
               Monthly
@@ -146,9 +150,9 @@ const Pricing = () => {
             <button
               onClick={() => setIsAnnual(true)}
               className={`px-6 py-2 rounded-full font-medium transition-all duration-300 relative ${
-                isAnnual 
-                  ? 'bg-white text-primary-600 shadow-md' 
-                  : 'text-gray-600 hover:text-gray-800'
+                isAnnual
+                  ? "bg-white text-primary-600 shadow-md"
+                  : "text-gray-600 hover:text-gray-800"
               }`}
             >
               Annual
@@ -170,12 +174,12 @@ const Pricing = () => {
             <motion.div
               key={plan.name}
               variants={itemVariants}
-              whileHover={{ 
+              whileHover={{
                 y: -10,
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
               className={`relative bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden ${
-                plan.popular ? 'ring-2 ring-primary-500 scale-105' : ''
+                plan.popular ? "ring-2 ring-primary-500 scale-105" : ""
               }`}
             >
               {/* Popular Badge */}
@@ -185,7 +189,7 @@ const Pricing = () => {
                 </div>
               )}
 
-              <div className={`p-8 ${plan.popular ? 'pt-16' : ''}`}>
+              <div className={`p-8 ${plan.popular ? "pt-16" : ""}`}>
                 {/* Plan Header */}
                 <div className="text-center mb-8">
                   <motion.div
@@ -195,20 +199,21 @@ const Pricing = () => {
                   >
                     <plan.icon className="w-8 h-8 text-white" />
                   </motion.div>
-                  
+
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">
                     {plan.name}
                   </h3>
-                  
-                  <p className="text-gray-600 mb-6">
-                    {plan.description}
-                  </p>
+
+                  <p className="text-gray-600 mb-6">{plan.description}</p>
 
                   {/* Price */}
                   <div className="mb-6">
                     <div className="flex items-baseline justify-center">
                       <span className="text-5xl font-bold text-gray-900">
-                        ${isAnnual ? Math.floor(plan.annualPrice / 12) : plan.monthlyPrice}
+                        $
+                        {isAnnual
+                          ? Math.floor(plan.annualPrice / 12)
+                          : plan.monthlyPrice}
                       </span>
                       <span className="text-gray-600 ml-2">/month</span>
                     </div>
@@ -225,11 +230,13 @@ const Pricing = () => {
                     whileTap={{ scale: 0.95 }}
                     className={`w-full py-3 px-6 rounded-xl font-semibold transition-all duration-300 ${
                       plan.popular
-                        ? 'bg-gradient-to-r from-primary-600 to-purple-600 text-white hover:shadow-lg'
-                        : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                        ? "bg-gradient-to-r from-primary-600 to-purple-600 text-white hover:shadow-lg"
+                        : "bg-gray-100 text-gray-800 hover:bg-gray-200"
                     }`}
                   >
-                    {plan.name === 'Enterprise' ? 'Contact Sales' : 'Start Free Trial'}
+                    {plan.name === "Enterprise"
+                      ? "Contact Sales"
+                      : "Start Free Trial"}
                   </motion.button>
                 </div>
 
@@ -242,7 +249,9 @@ const Pricing = () => {
                     <motion.div
                       key={featureIndex}
                       initial={{ opacity: 0, x: -20 }}
-                      animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                      animate={
+                        inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
+                      }
                       transition={{ delay: 0.5 + featureIndex * 0.05 }}
                       className="flex items-center space-x-3"
                     >
@@ -251,9 +260,11 @@ const Pricing = () => {
                       ) : (
                         <X className="w-5 h-5 text-gray-300 flex-shrink-0" />
                       )}
-                      <span className={`${
-                        feature.included ? 'text-gray-700' : 'text-gray-400'
-                      }`}>
+                      <span
+                        className={`${
+                          feature.included ? "text-gray-700" : "text-gray-400"
+                        }`}
+                      >
                         {feature.name}
                       </span>
                     </motion.div>
@@ -262,7 +273,9 @@ const Pricing = () => {
               </div>
 
               {/* Hover Effect Border */}
-              <div className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${plan.color} opacity-0 hover:opacity-10 transition-opacity duration-300 pointer-events-none`} />
+              <div
+                className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${plan.color} opacity-0 hover:opacity-10 transition-opacity duration-300 pointer-events-none`}
+              />
             </motion.div>
           ))}
         </motion.div>
@@ -274,16 +287,11 @@ const Pricing = () => {
           animate={inView ? "visible" : "hidden"}
           className="mt-20 max-w-4xl mx-auto"
         >
-          <motion.div
-            variants={itemVariants}
-            className="text-center mb-12"
-          >
+          <motion.div variants={itemVariants} className="text-center mb-12">
             <h3 className="text-3xl font-bold text-gray-900 mb-4">
               Frequently Asked Questions
             </h3>
-            <p className="text-gray-600">
-              Have questions? We've got answers.
-            </p>
+            <p className="text-gray-600">Have questions? We've got answers.</p>
           </motion.div>
 
           <motion.div
@@ -293,35 +301,37 @@ const Pricing = () => {
             {[
               {
                 question: "Can I change plans anytime?",
-                answer: "Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately."
+                answer:
+                  "Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately.",
               },
               {
                 question: "Is there a free trial?",
-                answer: "Yes, all plans come with a 14-day free trial. No credit card required to start."
+                answer:
+                  "Yes, all plans come with a 14-day free trial. No credit card required to start.",
               },
               {
                 question: "What payment methods do you accept?",
-                answer: "We accept all major credit cards, PayPal, and bank transfers for enterprise plans."
+                answer:
+                  "We accept all major credit cards, PayPal, and bank transfers for enterprise plans.",
               },
               {
                 question: "Do you offer refunds?",
-                answer: "Yes, we offer a 30-day money-back guarantee for all paid plans."
-              }
+                answer:
+                  "Yes, we offer a 30-day money-back guarantee for all paid plans.",
+              },
             ].map((faq, index) => (
               <div key={index} className="bg-gray-50 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-3">
                   {faq.question}
                 </h4>
-                <p className="text-gray-600">
-                  {faq.answer}
-                </p>
+                <p className="text-gray-600">{faq.answer}</p>
               </div>
             ))}
           </motion.div>
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Pricing
+export default Pricing;

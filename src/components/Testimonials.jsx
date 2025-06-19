@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
-import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react'
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 const Testimonials = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.2
-  })
+    threshold: 0.2,
+  });
 
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const testimonials = [
     {
@@ -17,105 +17,117 @@ const Testimonials = () => {
       name: "Sarah Johnson",
       role: "CEO",
       company: "TechStart Inc.",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
-      content: "TechFlow has completely transformed how we manage our operations. The intuitive interface and powerful features have increased our productivity by 300%. It's simply the best SaaS platform we've ever used.",
+      image:
+        "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+      content:
+        "TechFlow has completely transformed how we manage our operations. The intuitive interface and powerful features have increased our productivity by 300%. It's simply the best SaaS platform we've ever used.",
       rating: 5,
       metrics: {
         improvement: "300%",
-        label: "Productivity Increase"
-      }
+        label: "Productivity Increase",
+      },
     },
     {
       id: 2,
       name: "Michael Chen",
       role: "CTO",
       company: "InnovateLab",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-      content: "The analytics and reporting features are outstanding. We can now make data-driven decisions faster than ever before. The customer support team is also incredibly responsive and helpful.",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+      content:
+        "The analytics and reporting features are outstanding. We can now make data-driven decisions faster than ever before. The customer support team is also incredibly responsive and helpful.",
       rating: 5,
       metrics: {
         improvement: "85%",
-        label: "Faster Decision Making"
-      }
+        label: "Faster Decision Making",
+      },
     },
     {
       id: 3,
       name: "Emily Rodriguez",
       role: "Operations Director",
       company: "GrowthCorp",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
-      content: "Implementation was seamless, and the ROI was immediate. Our team collaboration has improved dramatically, and we've reduced operational costs by 40%. Highly recommend TechFlow!",
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+      content:
+        "Implementation was seamless, and the ROI was immediate. Our team collaboration has improved dramatically, and we've reduced operational costs by 40%. Highly recommend TechFlow!",
       rating: 5,
       metrics: {
         improvement: "40%",
-        label: "Cost Reduction"
-      }
+        label: "Cost Reduction",
+      },
     },
     {
       id: 4,
       name: "David Park",
       role: "Founder",
       company: "StartupHub",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-      content: "As a startup, we needed a solution that could scale with us. TechFlow has been perfect - from day one to now with 100+ employees. The platform grows with your business needs.",
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      content:
+        "As a startup, we needed a solution that could scale with us. TechFlow has been perfect - from day one to now with 100+ employees. The platform grows with your business needs.",
       rating: 5,
       metrics: {
         improvement: "500%",
-        label: "Team Growth"
-      }
+        label: "Team Growth",
+      },
     },
     {
       id: 5,
       name: "Lisa Thompson",
       role: "VP of Marketing",
       company: "BrandForward",
-      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face",
-      content: "The automation features have saved us countless hours every week. What used to take our team days now happens automatically. It's like having an extra team member working 24/7.",
+      image:
+        "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face",
+      content:
+        "The automation features have saved us countless hours every week. What used to take our team days now happens automatically. It's like having an extra team member working 24/7.",
       rating: 5,
       metrics: {
         improvement: "60%",
-        label: "Time Saved"
-      }
-    }
-  ]
+        label: "Time Saved",
+      },
+    },
+  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length)
-    }, 5000)
-    return () => clearInterval(timer)
-  }, [testimonials.length])
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [testimonials.length]);
 
   const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length)
-  }
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
 
   const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
-  }
+    setCurrentIndex(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
+  };
 
   return (
-    <section className="section-padding bg-gradient-to-br from-primary-600 via-purple-700 to-indigo-800 relative overflow-hidden">
+    <section className="section-padding bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         {[...Array(30)].map((_, i) => (
           <motion.div
             key={i}
-            initial={{ 
+            initial={{
               x: Math.random() * window.innerWidth,
               y: Math.random() * window.innerHeight,
-              scale: 0
+              scale: 0,
             }}
-            animate={{ 
+            animate={{
               y: [0, -30, 0],
               scale: [0.5, 1, 0.5],
-              rotate: [0, 180, 360]
+              rotate: [0, 180, 360],
             }}
             transition={{
               duration: 4 + Math.random() * 2,
               repeat: Infinity,
               delay: Math.random() * 2,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
             className="absolute w-1 h-1 bg-white/20 rounded-full"
           />
@@ -132,7 +144,9 @@ const Testimonials = () => {
         >
           <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
             <Star className="w-4 h-4 text-yellow-400 fill-current" />
-            <span className="text-sm font-semibold text-white">TESTIMONIALS</span>
+            <span className="text-sm font-semibold text-white">
+              TESTIMONIALS
+            </span>
           </div>
 
           <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
@@ -143,8 +157,8 @@ const Testimonials = () => {
           </h2>
 
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            Don't just take our word for it. Here's what industry leaders and growing businesses 
-            have to say about their experience with TechFlow.
+            Don't just take our word for it. Here's what industry leaders and
+            growing businesses have to say about their experience with TechFlow.
           </p>
         </motion.div>
 
@@ -163,16 +177,21 @@ const Testimonials = () => {
                 {/* Testimonial Content */}
                 <div>
                   <Quote className="w-12 h-12 text-yellow-400 mb-6" />
-                  
+
                   <blockquote className="text-2xl lg:text-3xl font-medium text-white leading-relaxed mb-8">
                     "{testimonials[currentIndex].content}"
                   </blockquote>
 
                   {/* Rating */}
                   <div className="flex items-center space-x-1 mb-6">
-                    {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                    ))}
+                    {[...Array(testimonials[currentIndex].rating)].map(
+                      (_, i) => (
+                        <Star
+                          key={i}
+                          className="w-5 h-5 text-yellow-400 fill-current"
+                        />
+                      )
+                    )}
                   </div>
 
                   {/* Author Info */}
@@ -187,7 +206,8 @@ const Testimonials = () => {
                         {testimonials[currentIndex].name}
                       </div>
                       <div className="text-white/70">
-                        {testimonials[currentIndex].role} at {testimonials[currentIndex].company}
+                        {testimonials[currentIndex].role} at{" "}
+                        {testimonials[currentIndex].company}
                       </div>
                     </div>
                   </div>
@@ -202,7 +222,7 @@ const Testimonials = () => {
                     <div className="text-xl font-semibold text-gray-800 mb-6">
                       {testimonials[currentIndex].metrics.label}
                     </div>
-                    
+
                     {/* Visual Metric */}
                     <div className="bg-gray-100 rounded-full h-4 mb-4 overflow-hidden">
                       <motion.div
@@ -212,7 +232,7 @@ const Testimonials = () => {
                         className="h-full bg-gradient-to-r from-primary-500 to-purple-500 rounded-full"
                       />
                     </div>
-                    
+
                     <p className="text-gray-600">
                       Results achieved within 6 months of implementation
                     </p>
@@ -249,9 +269,9 @@ const Testimonials = () => {
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex 
-                    ? 'bg-white scale-125' 
-                    : 'bg-white/30 hover:bg-white/50'
+                  index === currentIndex
+                    ? "bg-white scale-125"
+                    : "bg-white/30 hover:bg-white/50"
                 }`}
               />
             ))}
@@ -268,13 +288,21 @@ const Testimonials = () => {
           <p className="text-white/60 mb-8 text-lg">
             Trusted by leading companies worldwide
           </p>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center opacity-60">
-            {['TechStart', 'InnovateLab', 'GrowthCorp', 'StartupHub', 'BrandForward'].map((company, index) => (
+            {[
+              "TechStart",
+              "InnovateLab",
+              "GrowthCorp",
+              "StartupHub",
+              "BrandForward",
+            ].map((company, index) => (
               <motion.div
                 key={company}
                 initial={{ opacity: 0, scale: 0.8 }}
-                animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                animate={
+                  inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }
+                }
                 transition={{ delay: 0.7 + index * 0.1 }}
                 className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-white font-semibold text-center"
               >
@@ -285,7 +313,7 @@ const Testimonials = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Testimonials
+export default Testimonials;
