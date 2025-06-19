@@ -83,10 +83,10 @@ const Stats = () => {
           <div className="bg-gray-800/50 backdrop-blur-md rounded-3xl shadow-2xl shadow-cyan-500/10 p-8 max-w-4xl mx-auto border border-cyan-500/20">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                <h3 className="text-2xl font-bold text-white mb-4">
                   Real-time Analytics Dashboard
                 </h3>
-                <p className="text-gray-600 mb-6">
+                <p className="text-white/80 mb-6">
                   Monitor your business performance with our comprehensive
                   analytics suite. Get insights that matter and make data-driven
                   decisions.
@@ -107,17 +107,17 @@ const Stats = () => {
                       transition={{ delay: 0.7 + index * 0.1 }}
                       className="flex items-center space-x-3"
                     >
-                      <div className="w-2 h-2 bg-primary-500 rounded-full" />
-                      <span className="text-gray-700">{feature}</span>
+                      <div className="w-2 h-2 bg-cyan-500 rounded-full" />
+                      <span className="text-white/80">{feature}</span>
                     </motion.div>
                   ))}
                 </div>
               </div>
 
               {/* Chart Visualization */}
-              <div className="bg-gradient-to-br from-primary-50 to-purple-50 rounded-2xl p-6">
+              <div className="bg-gradient-to-br from-gray-700/30 to-gray-800/30 rounded-2xl p-6 border border-cyan-500/20">
                 <div className="flex items-center justify-between mb-4">
-                  <h4 className="font-semibold text-gray-800">
+                  <h4 className="font-semibold text-white">
                     Performance Overview
                   </h4>
                   <div className="flex space-x-2">
@@ -137,13 +137,13 @@ const Stats = () => {
                         inView ? { height: `${height}%` } : { height: 0 }
                       }
                       transition={{ delay: 1 + index * 0.1, duration: 0.8 }}
-                      className="bg-gradient-to-t from-primary-500 to-purple-500 rounded-t-lg flex-1 min-w-0"
+                      className="bg-gradient-to-t from-cyan-500 to-blue-500 rounded-t-lg flex-1 min-w-0"
                     />
                   ))}
                 </div>
 
                 {/* Chart Labels */}
-                <div className="flex justify-between mt-2 text-xs text-gray-500">
+                <div className="flex justify-between mt-2 text-xs text-white/60">
                   {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map(
                     (day) => (
                       <span key={day}>{day}</span>
